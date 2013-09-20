@@ -8,7 +8,7 @@ module.exports = function(grunt) {
     },
     concat: {
       options: {
-        separator: ';',
+        separator: ';\n',
       },
       dist: {
         src: ['src/*.js'],
@@ -20,7 +20,7 @@ module.exports = function(grunt) {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
       build: {
-        src: 'src/<%= pkg.name %>.js',
+        src: 'src/*.js',
         dest: 'dist/<%= pkg.name %>.min.js'
       }
     },

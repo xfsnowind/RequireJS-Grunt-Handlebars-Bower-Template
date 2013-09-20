@@ -24,4 +24,3 @@ $node.fixedHeaderTable({
     altClass: 'odd',
     themeClass: 'fancyTable'
 });
-
