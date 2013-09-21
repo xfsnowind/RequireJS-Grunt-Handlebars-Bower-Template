@@ -8,7 +8,7 @@
     "bower_components/*"
   ],
   "dependencies": {
-    "jquery-mousewheel": "git@github.com:brandonaaron/jquery-mousewheel.git",
-    "jquery-fixedheadertable": "git@github.com:xfsnowind/Fixed-Header-Table.git"
+    "jquery-mousewheel": "https://github.com/brandonaaron/jquery-mousewheel.git",
+    "jquery-fixedheadertable": "https://github.com/xfsnowind/Fixed-Header-Table.git"
   }
 }

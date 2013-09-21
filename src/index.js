@@ -12,6 +12,14 @@ require.config({
         "jquery-migrate": {
             deps: ['jquery'],
             exports: "jqueryMigrate"
+        },
+        'jquery-fixedHeaderTable': {
+            deps: ['jquery-mousewheel'],
+            exports: "jquery-fixedheadertable"
         }
     }
-})
+});
+
+require(["main"], function (main) {
+    main.init();
+});
