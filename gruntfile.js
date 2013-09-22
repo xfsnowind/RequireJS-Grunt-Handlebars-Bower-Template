@@ -8,7 +8,7 @@ module.exports = function(grunt) {
         },
         copy: {
             src: {
-                src: "src/**", 
+                src: "src/**",
                 dest: "www/"
             },
             lib: {
@@ -24,15 +24,38 @@ module.exports = function(grunt) {
                 dest: "www/"
             }
         },
-        // uglify: {
-        //     options: {
-        //         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-        //     },
-        //     build: {
-        //         src: 'src/*.js',
-        //         dest: 'dist/<%= pkg.name %>.min.js'
-        //     }
-        // },
+        requirejs: {
+            main: {
+                options: {
+                    mainConfigFile: "src/index.js",
+                    appDir: 'src',
+                    dir: "www/src",
+                    findNestedDependencies: true,
+                    generateSourceMaps: true,
+                    preserveLicenseComments: false,
+                    optimize: 'none',
+                    useStrict: true,
+                    paths: {
+                        templates: "../templates",
+                        mousewheel: "empty",
+                        fixedHeaderTable: "empty",
+                        jquery: "empty",
+                        migrate: "empty",
+                        handlebars: "empty"
+                    },
+                    shim: {
+                        migrate: {
+                            deps: ['jquery'],
+                            exports: "jquerymigrate"
+                        },
+                        fixedHeaderTable: {
+                            deps: ['jquery', 'mousewheel'],
+                            exports: "fixedheadertable"
+                        }
+                    }
+                }
+            }
+        },
         jshint: {
             // define the files to lint
             files: ['gruntfile.js', 'src/*.js'],
@@ -80,13 +103,13 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
 
     // Default task(s).
     grunt.registerTask('test', ['jshint']);
     grunt.registerTask('install', ['bower']);
-    grunt.registerTask('default', ['bower', 'jshint', 'copy']);
+    grunt.registerTask('default', ['bower', 'jshint', 'requirejs', 'copy']);
 };

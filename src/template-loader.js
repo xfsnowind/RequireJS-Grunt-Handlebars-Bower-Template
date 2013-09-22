@@ -1,6 +1,7 @@
 /*global $, Handlebars*/
-define(function () {
-    var Handlebars = require("handlebars"),
+define(function (require) {
+    'use strict';
+    var Handlebars = require('handlebars'),
         $ = require('jquery');
 
     return {
