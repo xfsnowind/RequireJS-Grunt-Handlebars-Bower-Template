@@ -2,13 +2,11 @@
 define(function (require) {
     'use strict';
     var $ = require('jquery'),
-        TemplateLoader = require('template-loader'),
         fixedHeaderTable = require('fixedHeaderTable');
 
     function init() {
         var tempData = {test : 4},
             html,
-            // loader = TemplateLoader.getTemplate("handlebars.hbs", "#handlebars");
             loader = require("templates/handlebars");
         html = loader(tempData);
         $('#content').empty().append(html);

@@ -1,0 +1,59 @@
+@mixin backgroundImage {
+    image: -moz-linear-gradient(
+        top,
+        rgba(255,255,255,0.4) 0%,
+        rgba(255,255,255,0.2) 50%,
+        rgba(255,255,255,0.1) 51%,
+        rgba(255,255,255,0.0) 100%);
+    image: -webkit-gradient(
+        linear, left top, left bottom,
+        color-stop(0%,rgba(255,255,255,0.4)),
+        color-stop(50%,rgba(255,255,255,0.2)),
+        color-stop(51%,rgba(255,255,255,0.1)),
+        color-stop(100%,rgba(255,255,255,0.0)));
+}
+
+@mixin tableCell ($bgcolor) {
+    /* appearance */
+    background: {
+        color: $bgcolor;
+        @include backgroundImage;
+    }
+}
+
+.fancyTable {
+    /* text */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.fancyTable td, .fancyTable th {
+    /* appearance */
+    border: 1px solid #778899;
+    /* size */
+    padding: 5px;
+}
+
+.fancyTable tbody tr td {
+    @include tableCell(#eef2f9);    
+    /* text */
+    color: #262c31;
+    font-size: 11px;
+}
+
+.fancyTable tbody tr.odd td {
+    @include tableCell(#d6e0ef);
+}
+
+.fancyTable thead tr th,
+.fancyTable thead tr td,
+.fancyTable tfoot tr th,
+.fancyTable tfoot tr td {
+    @include tableCell(#8ca9cf);
+    /* text */
+    color: #121517;
+    font: {
+        size: 12px;
+        weight: bold;
+    }
+    text-shadow: 0 1px 1px #e8ebee;
+}

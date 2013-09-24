@@ -6,26 +6,15 @@ module.exports = function(grunt) {
                 //just run 'grunt bower:install' and you'll see files from your Bower packages in lib directory
             }
         },
-        copy: {
-            src: {
-                src: "src/*.js",
-                dest: "www/"
-            },
-            lib: {
-                src: "lib/**",
-                dest: "www/"
-            },
-            templates: {
-                cwd: "buildTemp",
-                expand: true,
-                src: "templates/*.js",
-                dest: "www/"
-            },
-            css: {
-                src: "css/*.css",
-                dest: "www/"
+
+        sass: {
+            main: {
+                files: {
+                    'www/css/main.css': 'css/main.scss'
+                }
             }
         },
+
         handlebars_requirejs: {
             main: {
                 options: {
@@ -71,6 +60,7 @@ module.exports = function(grunt) {
                 }
             }
         },
+
         jshint: {
             // define the files to lint
             files: ['gruntfile.js', 'src/*.js'],
@@ -83,13 +73,35 @@ module.exports = function(grunt) {
                 }
             }
         },
+
+        copy: {
+            src: {
+                src: "src/*.js",
+                dest: "www/"
+            },
+            lib: {
+                src: "lib/**",
+                dest: "www/"
+            },
+            templates: {
+                cwd: "buildTemp",
+                expand: true,
+                src: "templates/*.js",
+                dest: "www/"
+            /*},
+            css: {
+                src: "css/main.css",
+                dest: "www/"*/
+            }
+        },
+
         watch: {
             options: {
                 livereload: true
             },
             src: {
                 files: "src/*.js",
-                tasks: ["copy:src", "test"],
+                tasks: ["copy:src", "check"],
                 options: {
                     atBegin: true
                 }
@@ -99,8 +111,8 @@ module.exports = function(grunt) {
                 tasks: ["handlebars_requirejs", "copy:templates"]
             },
             css: {
-                files: "css/*.css",
-                tasks: "copy:css"
+                files: "css/*.scss",
+                tasks: "sass"
             },
             lib: {
                 files: "lib/**",
@@ -124,9 +136,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks("grunt-handlebars-requirejs");
+    grunt.loadNpmTasks("grunt-contrib-sass");
 
     // Default task(s).
-    grunt.registerTask('test', ['jshint']);
-    grunt.registerTask('install', ['bower', 'handlebars_requirejs', 'requirejs', 'copy']);
-    grunt.registerTask('default', ['bower', 'jshint', 'handlebars_requirejs', 'requirejs', 'copy']);
+    grunt.registerTask('check', ['jshint']);
+    grunt.registerTask('build', ['bower', 'sass', 'handlebars_requirejs']);
+    grunt.registerTask('install', ['requirejs', 'copy']);
+    grunt.registerTask('default', ['check', 'build', 'install']);
 };
