@@ -8,7 +8,8 @@ define(function (require) {
     function init() {
         var tempData = {test : 4},
             html,
-            loader = TemplateLoader.getTemplate("handlebars.hbs", "#handlebars");
+            // loader = TemplateLoader.getTemplate("handlebars.hbs", "#handlebars");
+            loader = require("templates/handlebars");
         html = loader(tempData);
         $('#content').empty().append(html);
 

@@ -16,7 +16,9 @@ module.exports = function(grunt) {
                 dest: "www/"
             },
             templates: {
-                src: "templates/*.hbs",
+                cwd: "buildTemp",
+                expand: true,
+                src: "templates/*.js",
                 dest: "www/"
             },
             css: {
@@ -24,6 +26,19 @@ module.exports = function(grunt) {
                 dest: "www/"
             }
         },
+        handlebars_requirejs: {
+            main: {
+                options: {
+                  makePartials: true
+                },
+                files: {
+                  // folder : files
+                  // this task will find the hbs files automatically and convert them into modules and dumped into the folder
+                  'buildTemp/': ['templates/*.hbs']
+                }
+            }
+        },
+
         requirejs: {
             main: {
                 options: {
@@ -79,12 +94,9 @@ module.exports = function(grunt) {
                     atBegin: true
                 }
             },
-            html: {
-                files: "www/index.html"
-            },
             templates: {
                 files: "templates/*.hbs",
-                tasks: "copy:templates"
+                tasks: ["handlebars_requirejs", "copy:templates"]
             },
             css: {
                 files: "css/*.css",
@@ -96,11 +108,11 @@ module.exports = function(grunt) {
             },
             bower: {
                 files: "bower.json",
-                tasks: "install"
+                tasks: "bower"
             }
         },
         clean: {
-            build: ['lib', "www/css", "www/src", "www/templates", "www/lib"],
+            build: ['lib', "buildTemp", "www/css", "www/src", "www/templates", "www/lib"],
             bower: ['bower_components']
         }
     });
@@ -111,9 +123,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks("grunt-handlebars-requirejs");
 
     // Default task(s).
     grunt.registerTask('test', ['jshint']);
-    grunt.registerTask('install', ['bower']);
-    grunt.registerTask('default', ['bower', 'jshint', 'requirejs', 'copy']);
+    grunt.registerTask('install', ['bower', 'handlebars_requirejs', 'requirejs', 'copy']);
+    grunt.registerTask('default', ['bower', 'jshint', 'handlebars_requirejs', 'requirejs', 'copy']);
 };
