@@ -9,6 +9,10 @@ module.exports = function(grunt) {
 
         sass: {
             main: {
+                options: {
+                    noCache: true,
+                    debugInfo: true
+                },
                 files: {
                     'www/css/main.css': 'css/main.scss'
                 }
