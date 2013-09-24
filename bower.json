@@ -5,7 +5,9 @@
   "ignore": [
     ".jshintrc",
     "**/*.txt",
-    "bower_components/*"
+    "node_modules",
+    "bower_components",
+    "components"
   ],
   "dependencies": {
     "jquery-mousewheel": "https://github.com/brandonaaron/jquery-mousewheel.git",

@@ -8,7 +8,7 @@ module.exports = function(grunt) {
         },
         copy: {
             src: {
-                src: "src/**",
+                src: "src/*.js",
                 dest: "www/"
             },
             lib: {
@@ -73,8 +73,8 @@ module.exports = function(grunt) {
                 livereload: true
             },
             src: {
-                files: ["src/*.js", "templates/*.hbs", "css/*.css"],
-                tasks: ["test", "install"],
+                files: "src/*.js",
+                tasks: ["copy:src", "test"],
                 options: {
                     atBegin: true
                 }
@@ -93,6 +93,10 @@ module.exports = function(grunt) {
             lib: {
                 files: "lib/**",
                 tasks: "copy:lib"
+            },
+            bower: {
+                files: "bower.json",
+                tasks: "install"
             }
         },
         clean: {

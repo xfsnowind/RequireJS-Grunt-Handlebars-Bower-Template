@@ -12,16 +12,16 @@ define(function (require) {
         html = loader(tempData);
         $('#content').empty().append(html);
 
-        var $node = $("#myTable01 table"),
+        var $node = $("#myTable01"),
         // extraHeightOfTable = $node.find("thead > tr").length * 25 + $node.find("tbody > tr").length * 9,
         // extraWidthOfTable = $node.find("tr:first > th").length * 6,
         // width = $node.width() + extraWidthOfTable,
         // height = $node.height() + extraHeightOfTable;
 
-        // height = height > $(window).height() - height;
+        // height = height > $(window).height() - height ? $(window).height : height;
         // width = width > $node.parent().width() ? $node.parent().width() : width;
-        height = "200";
-        width = "100";
+            height = "400",
+            width = "300";
 
         $node.fixedHeaderTable({
             height: height,

@@ -8,7 +8,7 @@ require.config({
         handlebars: "//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min",
         migrate: "//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min"
     },
-    shim: {
+    shim: { 
         migrate: {
             deps: 'jquery',
             exports: "jquerymigrate"
