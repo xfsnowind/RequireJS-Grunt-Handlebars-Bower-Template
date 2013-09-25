@@ -3,7 +3,9 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         bower: {
             install: {
-                //just run 'grunt bower:install' and you'll see files from your Bower packages in lib directory
+                options: {
+                    targetDir: "www/lib/"
+                }
             }
         },
 
@@ -83,19 +85,11 @@ module.exports = function(grunt) {
                 src: "src/*.js",
                 dest: "www/"
             },
-            lib: {
-                src: "lib/**",
-                dest: "www/"
-            },
             templates: {
                 cwd: "buildTemp",
                 expand: true,
                 src: "templates/*.js",
                 dest: "www/"
-            /*},
-            css: {
-                src: "css/main.css",
-                dest: "www/"*/
             }
         },
 
@@ -105,7 +99,7 @@ module.exports = function(grunt) {
             },
             src: {
                 files: "src/*.js",
-                tasks: ["copy:src", "check"],
+                tasks: ["check", "copy:src"],
                 options: {
                     atBegin: true
                 }
@@ -117,10 +111,6 @@ module.exports = function(grunt) {
             css: {
                 files: "css/*.scss",
                 tasks: "sass"
-            },
-            lib: {
-                files: "lib/**",
-                tasks: "copy:lib"
             },
             bower: {
                 files: "bower.json",

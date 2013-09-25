@@ -2,12 +2,15 @@
 define(function (require) {
     'use strict';
     var $ = require('jquery'),
-        fixedHeaderTable = require('fixedHeaderTable');
+        fixedHeaderTable = require('fixedHeaderTable'),
+        Handlebars = require("handlebars");
 
     function init() {
-        var tempData = {test : 4},
+        var tempData = {test : 4, partial: "partial"},
             html,
-            loader = require("templates/handlebars");
+            loader = require("templates/handlebars"),
+            partial = require("templates/partial");
+        Handlebars.registerPartial("partial", partial);
         html = loader(tempData);
         $('#content').empty().append(html);
 

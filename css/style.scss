@@ -1,5 +1,3 @@
-@charset 'UTF-8';
-
 .fht-table,
 .fht-table thead,
 .fht-table tfoot,
@@ -39,27 +37,27 @@
     position: relative;
 }
 
-    .fht-table-wrapper .fht-fixed-body .fht-tbody,
-    .fht-table-wrapper .fht-tbody {
-        /* appearance */
-        overflow: auto;
-    }
+.fht-table-wrapper .fht-fixed-body .fht-tbody,
+.fht-table-wrapper .fht-tbody {
+    /* appearance */
+    overflow: auto;
+}
 
-        .fht-table-wrapper .fht-table .fht-cell {
-            /* appearance */
-            overflow: hidden;
-        }
+.fht-table-wrapper .fht-table .fht-cell {
+    /* appearance */
+    overflow: hidden;
+}
 
-    .fht-table-wrapper .fht-fixed-column,
-    .fht-table-wrapper .fht-fixed-body {
-        /* position */
-        top: 0;
-        left: 0;
-        position: absolute;
-    }
+.fht-table-wrapper .fht-fixed-column,
+.fht-table-wrapper .fht-fixed-body {
+    /* position */
+    top: 0;
+    left: 0;
+    position: absolute;
+}
 
-    .fht-table-wrapper .fht-fixed-column {
-        /* position */
-        z-index: 1;
-    }
+.fht-table-wrapper .fht-fixed-column {
+    /* position */
+    z-index: 1;
+}
 /* @end */
