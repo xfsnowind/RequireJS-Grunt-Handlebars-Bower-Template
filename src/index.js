@@ -6,19 +6,23 @@ require.config({
         fixedHeaderTable: "../lib/jquery-fixedheadertable/jquery.fixedheadertable",
         jquery: "//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min",
         handlebars: "//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min",
-        migrate: "//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min"
+        underscore: "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min",
+        backbone: "//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min"
     },
-    shim: { 
-        migrate: {
-            deps: 'jquery',
-            exports: "jquerymigrate"
-        },
+    shim: {
         fixedHeaderTable: {
             deps: ['jquery', 'mousewheel'],
             exports: "fixedheadertable"
         },
         handlebars: {
             exports: "Handlebars"
+        },
+        backbone: {
+            deps: ["jquery", "underscore"],
+            exports: "Backbone"
+        },
+        underscore: {
+            exports: "_"
         }
     }
 });
