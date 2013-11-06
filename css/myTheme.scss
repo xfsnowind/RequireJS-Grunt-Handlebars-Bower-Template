@@ -21,16 +21,16 @@
     }
 }
 
-.fancyTable {
-    /* text */
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
 .fancyTable td, .fancyTable th {
     /* appearance */
     border: 1px solid #778899;
     /* size */
     padding: 5px;
+}
+
+.fancyTable {
+    /* text */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .fancyTable tbody tr td {

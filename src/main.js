@@ -3,7 +3,8 @@ define(function (require) {
     'use strict';
     var $ = require('jquery'),
         fixedHeaderTable = require('fixedHeaderTable'),
-        Handlebars = require("handlebars");
+        Handlebars = require("handlebars"),
+        Common = require("Common");
 
     function init() {
         var tempData = {test : 4, partial: "partial"},
@@ -25,6 +26,8 @@ define(function (require) {
             altClass: 'odd',
             themeClass: 'fancyTable'
         });
+
+        Common.test();
     }
 
     return {

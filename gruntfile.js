@@ -52,23 +52,7 @@ module.exports = function(grunt) {
                         jquery: "empty",
                         handlebars: "empty",
                         backbone: "empty",
-                        underscore: "empty"
-                    },
-                    shim: {
-                        fixedHeaderTable: {
-                            deps: ['jquery', 'mousewheel'],
-                            exports: "fixedheadertable"
-                        },
-                        handlebars: {
-                            exports: "Handlebars"
-                        },
-                        backbone: {
-                            deps: ["jquery", "underscore"],
-                            exports: "Backbone"
-                        },
-                        underscore: {
-                            exports: "_"
-                        }
+                        lodash: "empty"
                     }
                 }
             }
