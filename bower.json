@@ -1,7 +1,6 @@
 {
   "name": "testBGHR",
   "version": "0.0.1",
-  "main": "path/to/main.css",
   "ignore": [
     ".jshintrc",
     "**/*.txt",
@@ -12,5 +11,10 @@
   "dependencies": {
     "jquery-mousewheel": "https://github.com/brandonaaron/jquery-mousewheel.git",
     "jquery-fixedheadertable": "https://github.com/xfsnowind/Fixed-Header-Table.git"
+  },
+  "exportsOverride": {
+    "jquery-fixedheadertable": {
+      ".": ["jquery.fixedheadertable.js"]
+    }
   }
 }

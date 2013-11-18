@@ -10,6 +10,9 @@ require.config({
         backbone: "//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min"
     },
     shim: {
+        jquery: {
+            exports: "jQuery"
+        },
         fixedHeaderTable: {
             deps: ['jquery', 'mousewheel'],
             exports: "fixedheadertable"
