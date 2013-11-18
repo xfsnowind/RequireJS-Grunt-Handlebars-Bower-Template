@@ -4,7 +4,7 @@ define(function (require) {
     var $ = require('jquery'),
         fixedHeaderTable = require('fixedHeaderTable'),
         Handlebars = require("handlebars"),
-        Common = require("Common");
+        Common = require("common");
 
     function init() {
         var tempData = {test : 4, partial: "partial"},

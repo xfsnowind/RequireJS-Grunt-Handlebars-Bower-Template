@@ -9,7 +9,6 @@
     "components"
   ],
   "dependencies": {
-    "jquery-mousewheel": "https://github.com/brandonaaron/jquery-mousewheel.git",
     "jquery-fixedheadertable": "https://github.com/xfsnowind/Fixed-Header-Table.git"
   },
   "exportsOverride": {
