@@ -1,9 +1,20 @@
-testBowerGruntHandlebarsRequireJs
-=================================
+RequireJS-Grunt-Handlebars-Bower-Template
+=========================================
 
-This is a practical project after we almost finish NesstarTouch. I just want to reuse and learn all the techniques and tools applied in NesstarTouch.
+This is a practical project after we almost finish a new front end project. I just want to reuse and learn all the techniques and tools applied in it.
 
-Techniques used can be referenced to http://goo.gl/cExSMf
+Techniques used can be here:
+
+* RequireJs
+* Handlebars - Templating
+* npm - install external libraries
+* bower - reference to external libraries
+* grunt - run the tasks in order
+  * merge requirejs, handlebars, bower, test, copy, jslint/jshint, clean, watch, connect to server, 
+* Promise pattern of javascript (async) (unimplemented)
+* unit test of js, mocha/chai (unimplemented)
+* scss, merge css to one file
+
 
 Installation
 ------------
